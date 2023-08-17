@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_093011) do
   create_table "addresses", force: :cascade do |t|
     t.string "area"
     t.string "building_no"
-    t.string "city"
+    t.string "city_name"
     t.integer "college_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

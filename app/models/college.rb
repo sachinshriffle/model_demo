@@ -1,6 +1,6 @@
 class College < ApplicationRecord
-	has_many :courses
-	has_one :address
+	has_many :courses , dependent: :destroy
+	has_one :address , dependent: :destroy
 
 	validates :college_name , presence: true , uniqueness: { scope: :city, message: "College Name Can't Same Within City"}
 	validates :city , presence: true
@@ -13,7 +13,7 @@ class College < ApplicationRecord
 	end
 
 	def remove_whitespace
-		self.city = self.city.downcase.strip!
+		self.city = self.city.downcase.strip
 		self.college_name = self.college_name.strip.downcase
 	end
 end
