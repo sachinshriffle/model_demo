@@ -7,6 +7,13 @@ class College < ApplicationRecord
 	after_save :commit_message
 	before_validation :remove_whitespace
 
+	def self.search(city)
+		result=Course.joins(:college).where("city=?",city)
+		result.each do |res|
+			puts res.course_name
+		end
+	end
+
 	private 
 	def commit_message
 		puts "Information Saved Successfully!"
